@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+
+#header
+{
+	margin: 0 auto;
+	width: 1200px;
+	display: block;
+}

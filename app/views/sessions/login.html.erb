@@ -1,0 +1,29 @@
+<% if flash[:error] %>
+	<p class="warning show"><%= flash[:error] %></p>
+<% end %>
+
+<% if flash[:ok] %>
+	<p class="success show"><%= flash[:ok] %></p>
+<% end %>
+
+<%= simple_form_for(:session, url: sessions_path, html: { class: "form-signin" }) do |f| %>
+	<h2 class="form-signin-heading">Welcome! Konnichiwa! Bonjour!</h2>
+	<%= f.input :email, placeholder: "E-mail Address", label: false, input_html: { class: "form-control" } %>
+	<%= f.input :password, placeholder: "Password", label: false, input_html: { class: "form-control" } %>
+	<%= f.input_field :remember, as: :boolean, inline_label: 'Yes, remember me!' %>
+	<%= f.input_field :target, hidden: :true, value: params[:target] %>
+	<%= f.button :submit, class: "btn-lg btn-success", value: "Sign in »" %>
+
+	<ul>
+		<li>&raquo; <%= link_to "I Forgot My Username", users_forgot_username_path %></li>
+		<li>&raquo; <%= link_to "I Forgot My Password", users_forgot_password_path %></li>
+	</ul>
+	
+	<h2>Don't have an account yet?</h2>
+	<p><a class="btn btn-primary btn-lg" role="button" href="http://accounts.applebloom.co/register?target=${_REQUEST.target ?: ""}">Continue to Registration &raquo;</a></p>
+
+<% end %>
+
+<% if params[:target] %>
+	<p class="success show">After login you will be redirected to <%= params[:target] %></p>
+<% end %>

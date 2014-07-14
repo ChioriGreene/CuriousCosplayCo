@@ -1,0 +1,49 @@
+<div class="navbar-wrapper">
+	<div class="container">
+		<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="http://curiouscosplay.co/">Curious Cosplay Co.<!-- <img height="50px" alt="Curious Cosplay Company" src="%images%/logo.png" /> --></a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="http://curiouscosplay.co/dashboard">Dashboard</a></li>
+						<li><!-- class="active"--><%= link_to "Home", root_url(subdomain: false) %></li>
+						<li><a href="http://accounts.curiouscosplay.co/profile">Profile</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">A</a></li>
+								<li><a href="#">B</a></li>
+								<li><a href="#">C</a></li>
+								<li class="divider"></li>
+								<li class="dropdown-header">More Information</li>
+								<li><a href="#">About</a></li>
+								<li><a href="#">Help</a></li>
+							</ul>
+						</li>
+					</ul>
+					
+					<form class="navbar-form navbar-right" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+					</form>
+					
+					<% if signed_in? %>
+						<p class="navbar-text navbar-right">Signed in as <a href="http://accounts.curiouscosplay.co/profile" class="navbar-link"><%= @current_user.name %></a></p>
+					<% else %>
+						<p class="navbar-text navbar-right">Welcome Guest! <%= link_to "Sign In Here", users_signin_url(subdomain: "accounts"), class: "navbar-link" %></p>
+					<% end %>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

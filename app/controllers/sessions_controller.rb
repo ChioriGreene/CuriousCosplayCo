@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  def new
+	layout "login"
+  def login
   end
   
   def create
@@ -7,7 +8,7 @@ class SessionsController < ApplicationController
   	
   	if user.nil?
   		flash.now[:error] = "Invalid email/password configuration."
-  		render :new
+  		render :login
   	else
   		sign_in user
   		redirect_to user

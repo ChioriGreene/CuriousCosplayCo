@@ -1,0 +1,247 @@
+/* Misc Styling */
+.bordered{
+	padding: 19px 29px 29px;
+	margin: 48px auto 20px;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.hbg{
+	max-height: 100px;
+	overflow: hidden;
+}
+/* Index Styling */
+body {
+	padding-bottom: 40px;
+	color: #5a5a5a;
+}
+.blog-post {
+	padding: 0;
+	margin: 48px auto 20px;
+}
+.blog-post-interior {
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.blog-post-img-primary {
+	width: 100%;
+}
+.blog-post-html {
+	margin: 19px 29px;
+}
+.blog-post-avatar {
+	float: left;
+	margin: 0;
+	margin-left: -125px;
+	padding: 0;
+	background-color: #119999;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 20;
+}
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper .container {
+	padding-right: 0;
+	padding-left: 0;
+}
+.navbar-wrapper .navbar {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+/* Carousel base class */
+.carousel {
+	height: 500px;
+	margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+	z-index: 10;
+}
+/* Declare heights because of positioning of img element */
+.carousel .item {
+	height: 500px;
+	background-color: #777;
+}
+.carousel-inner > .item > img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 500px;
+}
+/* Signin Form Styling */
+.form-signin {
+	max-width: 500px;
+	padding: 15px;
+	margin: 0 auto;
+}
+.form-signin .form-signin-heading,      .form-signin .checkbox {
+	margin-bottom: 10px;
+	
+}
+.form-signin .checkbox {
+	font-weight: normal;
+}
+.form-signin .form-control {
+	position: relative;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
+}
+.form-signin .form-control:focus {
+	z-index: 2;
+}
+.form-signin input[type="email"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+.form-signin ul{
+	clear: both;
+	list-style: none;
+	margin: 10px 0;
+	padding: 0;
+	font-size: 16px;
+}
+/* Left Share Bar Styling */
+#smthemes_share{
+	position: absolute;
+	height: 0;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+#smthemes_share .inner{
+	background:#fff;
+	background-clip: padding-box;
+	background-color: #FFFFFF;
+	border: 1px solid #BBBBBB;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 1px 0 15px rgba(0, 0, 0, 0.2);	display: none;
+	font-family: Arial;
+	font-size: 10px;
+	left: 15px;
+	line-height: 16px;
+	min-width: 60px;
+	padding: 5px;
+	position: absolute;
+	text-align: center;
+	width: 70px;
+	display: block;
+	position: absolute;
+	top: 283px;
+	padding-top:20px;
+}
+#smthemes_share li{
+	text-align:center;
+	margin-bottom:20px;
+	overflow:hidden;
+}
+/* MARKETING CONTENT
+-------------------------------------------------- */
+/* Pad the edges of the mobile views a bit */
+.marketing {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+	margin-bottom: 20px;
+	text-align: center;
+}
+.marketing h2 {
+	font-weight: normal;
+}
+.marketing .col-lg-4 p {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+/* Featurettes
+------------------------- */
+.featurette-divider {
+	margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+/* Thin out the marketing headings */
+.featurette-heading {
+	font-weight: 300;
+	line-height: 1;
+	letter-spacing: -1px;
+}
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (min-width: 768px) {  /* Remove the edge padding needed for mobile */
+.marketing {
+	padding-right: 0;
+	padding-left: 0;
+	
+}
+/* Navbar positioning foo */
+.navbar-wrapper {
+	margin-top: 20px;
+	
+}
+.navbar-wrapper .container {
+	padding-right: 15px;
+	padding-left:  15px;
+	
+}
+.navbar-wrapper .navbar {
+	padding-right: 0;
+	padding-left:  0;
+	
+}
+/* The navbar becomes detached from the top, so we round the corners */
+.navbar-wrapper .navbar {
+	border-radius: 4px;
+	
+}
+/* Bump up size of carousel content */
+.carousel-caption p {
+	margin-bottom: 20px;
+	font-size: 21px;
+	line-height: 1.4;
+	
+}
+.featurette-heading {
+	font-size: 50px;
+	
+}
+}@media (min-width: 992px) {  .featurette-heading {
+	margin-top: 120px;
+	
+}
+}
