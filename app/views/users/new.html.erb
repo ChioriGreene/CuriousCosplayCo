@@ -1,0 +1,8 @@
+<h1>New User</h1>
+<%= simple_form_for @user do |f| %>
+	<%= f.input :name, label: "Full Name" %>
+	<%= f.input :email, label: "Valid E-mail Address" %>
+	<%= f.input :password, label: "Desired Password" %>
+	<%= f.input :password_confirmation, label: "Confirm Password" %>
+	<%= f.button :submit %>
+<% end %>

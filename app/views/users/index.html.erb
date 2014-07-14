@@ -1,0 +1,24 @@
+<h1>List Users</h2>
+<table>
+	<tr>
+		<th>User Id</th>
+		<th>Full Name</th>
+		<th>E-mail Address</th>
+		<th>Created On</th>
+		<th>Updated On</th>
+	</tr>
+	<% @users.each do |user| %>
+		<tr>
+			<td><%= link_to user.id, user %></td>
+			<td><%= user.name %></td>
+			<td><%= user.email %></td>
+			<td><%= user.created_at %></td>
+			<td><%= user.updated_at %></td>
+			<td><%= link_to "Edit", edit_user_path(user) %></td>
+			<td><%= link_to "Destroy", user, method: :delete %></td>
+		</tr>
+	<% end %>
+	<% if @users.size < 1 %>
+		<em>No Users Found</em>
+	<% end %>
+</table>
