@@ -1,0 +1,12 @@
+Mon, 14 Jul 2014 15:55:28 -0400
+README.rdoc	Sun, 13 Jul 2014 15:44:18 -0400
+app/controllers/application_controller.rb	Sun, 13 Jul 2014 21:56:34 -0400
+app/controllers/extra_controller.rb	Mon, 14 Jul 2014 15:03:39 -0400
+app/controllers/sessions_controller.rb	Sun, 13 Jul 2014 21:43:07 -0400
+app/controllers/users_controller.rb	Mon, 14 Jul 2014 14:54:29 -0400
+app/helpers/application_helper.rb	Sun, 13 Jul 2014 15:44:18 -0400
+app/helpers/extra_helper.rb	Mon, 14 Jul 2014 15:03:02 -0400
+app/helpers/sessions_helper.rb	Sun, 13 Jul 2014 21:54:45 -0400
+app/helpers/users_helper.rb	Mon, 14 Jul 2014 14:57:59 -0400
+app/models/post.rb	Sun, 13 Jul 2014 16:27:29 -0400
+app/models/user.rb	Mon, 14 Jul 2014 14:58:31 -0400
