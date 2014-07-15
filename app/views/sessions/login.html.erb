@@ -6,7 +6,7 @@
 	<p class="success show"><%= flash[:ok] %></p>
 <% end %>
 
-<%= simple_form_for(:session, url: sessions_path, html: { class: "form-signin" }) do |f| %>
+<%= simple_form_for(:session, url: sessions_path( subdomain: "accounts" ), html: { class: "form-signin" }) do |f| %>
 	<h2 class="form-signin-heading">Welcome! Konnichiwa! Bonjour!</h2>
 	<%= f.input :email, placeholder: "E-mail Address", label: false, input_html: { class: "form-control" } %>
 	<%= f.input :password, placeholder: "Password", label: false, input_html: { class: "form-control" } %>

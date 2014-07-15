@@ -1,7 +1,6 @@
 module SessionsHelper
-	
 	def sign_in(user)
-		session[:user_id] = user.id
+		session[:user_id] = user.userId
 		self.current_user = user
 	end
 	
@@ -10,7 +9,7 @@ module SessionsHelper
 	end
 	
 	def current_user
-		@current_user ||= User.find(session[:user_id]) if session[:user_id]
+		@current_user ||= User.where(userId: session[:user_id]).first if session[:user_id]
 	end
 	
 	def signed_in?
@@ -29,5 +28,4 @@ module SessionsHelper
 	def deny_access
 		redirect_to signin_path, notice: "Please sign in to access this page."
 	end
-	
 end

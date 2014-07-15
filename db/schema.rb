@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20140714003437) do
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "userId"
+    t.string   "avatar"
   end
 
 end

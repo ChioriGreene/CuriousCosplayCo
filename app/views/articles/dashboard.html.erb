@@ -1,0 +1,93 @@
+<div class="row">
+<div class="col-sm-8 blog-main">
+
+<% if signed_in? %>
+	<div class="blog-post">
+		<img class="blog-post-avatar" src="<%= current_user.avatar %>" />
+		<h2 class="blog-post-title">New Post</h2>
+		<div class="blog-post-interior">
+			<ul class="nav nav-pills">
+				<li><a href="#" data-toggle="modal" data-target="#textPostModal"><span class="glyphicon glyphicon-font"></span> Text</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-picture"></span> Photo</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-comment"></span> Quote</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-link"></span> Link</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-check"></span> Checkin</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-music"></span> Audio</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-film"></span> Video</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="form-result"></div>
+	
+	<div class="modal fade" id="textPostModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<form data-async data-target="reset|event|close|#form-result" id="textPostForm" action="/post" method="POST">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">New Post</h4>
+					</div>
+					<div class="modal-body">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Title" name="title">
+							<span class="input-group-addon">Optional</span>
+						</div>
+						
+						<div class="input-group" style="margin: 10px auto;">
+							<textarea class="form-control textarea" placeholder="Your text goes here..." rows="10" name="html"></textarea>
+						</div>
+						
+						<div style="margin: 10px 0;">
+							<!-- <span class="glyphicon glyphicon-tag"></span> -->
+							<input type="text" placeholder="Tags" class="tm-input tm-input-inverse form-control"/>
+						</div>
+						
+						<div class="checkbox">
+							<label>
+								<input name="share-tumblr" type="checkbox" value="tumblr"> Share on Tumblr
+							</label>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Post</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div id="ajax-posts">
+		<div class="bordered">
+			<div style="margin: 0 auto; display: block;">
+				<img src="%images%/728.gif" alt="Loading" />
+				<p>Loading a better tomorrow...</p>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+	$(document).ready(function () {
+		$('#textPostForm').on('ajax-submit', function(event){
+			ajaxReload();
+		});
+		
+		ajaxReload();
+	});
+	
+	function ajaxReload()
+	{
+		$.get("http://curiouscosplay.co/api/ajax-posts", function (data) {
+			$("#ajax-posts").html(data);
+			$(".post-notes").hide();
+			$(".show-notes").on("click", function () {
+				$($(this).attr("rel")).slideToggle();
+			})
+		});
+	}
+	</script>
+<% end %>
+
+</div>
+</div>
