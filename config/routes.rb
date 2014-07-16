@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 	root to: "extra#index", constraints: { subdomain: '' }
 
 	resources :users, constraints: { subdomain: :accounts }
-	resources :sessions, constraints: { subdomain: :accounts }
+	resources :sessions
 	resources :articles, constraints: { subdomain: :accounts }
 
 	get 'login' => "sessions#login", as: "users_signin", constraints: { subdomain: 'accounts' }

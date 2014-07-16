@@ -13,18 +13,24 @@
 
 ActiveRecord::Schema.define(version: 20140714003437) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  create_table "posts", id: false, force: true do |t|
+    t.string "postId",              null: false
+    t.string "owner",               null: false
+    t.string "posted",              null: false
+    t.string "tags",   default: ""
+    t.string "title",  default: ""
+    t.string "html",                null: false
+    t.string "img1",   default: ""
+  end
 
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "encrypted_password"
-    t.string   "salt"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "userId"
-    t.string   "avatar"
+  create_table "users", primary_key: "userId", force: true do |t|
+    t.string    "name"
+    t.string    "email"
+    t.string    "encrypted_password"
+    t.string    "salt"
+    t.timestamp "created_at",         null: false
+    t.timestamp "updated_at",         null: false
+    t.string    "avatar"
   end
 
 end
