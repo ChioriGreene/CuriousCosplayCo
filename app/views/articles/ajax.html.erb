@@ -1,0 +1,111 @@
+<!--def search = [:];
+
+//if ( getSession().getCurrentUser() != null )
+//	search.owner = getSession().getCurrentUser().getUserId();
+
+def posts = db.select("posts", search, ["orderBy": "posted DESC", "limit": 10]);
+
+posts.each
+{ k, post ->
+	def postUser = db.selectOne("users", ["userID": post.owner])
+	
+	if (postUser == null)
+		return;-->
+
+<% if @posts.size < 1 %>
+	<em>No Posts Found!</em>
+<% end %>
+<% @posts.each do |post| %>
+	<div class="blog-post">
+		<img class="blog-post-avatar" src="<%= post.user.avatar %>" />
+		<p class="blog-post-meta"><span class="glyphicon glyphicon-chevron-left"></span> <a href="/user/${postUser.userID}"><%= post.user.email %></a> <span class="glyphicon glyphicon-plus"></span></p>
+		<div class="blog-post-interior">
+			<% if post.img1 %>
+				<img class="blog-post-img-primary" src="<%= post.img1 %>" />
+			<% end %>
+			<div class="blog-post-html">
+				<% if post.title %>
+					<h2 class="blog-post-title"><%= post.title %></h2>
+				<% end %>
+
+				<div style="margin: 0 0 10px;">
+					<%= post.html.html_safe %>
+				</div>
+				<small>
+					<ul class="list-inline">
+					<% post.tags.split(",").each do |tag| %>
+						<li><%= tag %></li>
+					<% end %>
+					</ul>
+				</small>
+				<ul class="nav nav-pills" style="clear: both;">
+					<li><a href="javascript: void();" class="show-notes" rel="#post-notes-${post.postId}"><span class="glyphicon glyphicon-comment"></span> Notes <span class="badge">0</span></a></li>
+					<li><a href="javascript: void();" class="show-notes" rel="#post-notes-${post.postId}"><span class="glyphicon glyphicon-heart"></span> Likes <span class="badge">0</span></a></li>
+					<li><a href="javascript: void();"><span class="glyphicon glyphicon-share"></span> Share</a></li>
+					<li style="float: right;"><a><span class="glyphicon glyphicon-time"></span> <%= post.posted %></a></li>
+				</ul>
+				
+				<div class="post-notes" id="post-notes-${post.postId}">
+					<h3>Notes</h3>
+					<ul class="media-list">
+				      <!--<li class="media">
+				        <a class="pull-left" href="#">
+				          <img class="media-object" alt="avatar" src="" style="width: 64px; height: 64px;">
+				        </a>
+				        <div class="media-body">
+				          <h4 class="media-heading">Media heading</h4>
+				          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+				          <div class="media">
+				            <a class="pull-left" href="#">
+				              <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 64px; height: 64px;">
+				            </a>
+				            <div class="media-body">
+				              <h4 class="media-heading">Nested media heading</h4>
+				              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+				              <div class="media">
+				                <a class="pull-left" href="#">
+				                  <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 64px; height: 64px;">
+				                </a>
+				                <div class="media-body">
+				                  <h4 class="media-heading">Nested media heading</h4>
+				                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+				                </div>
+				              </div>
+				            </div>
+				          </div>
+				          <div class="media">
+				            <a class="pull-left" href="#">
+				              <img class="media-object" alt="avatar" src="" style="width: 64px; height: 64px;">
+				            </a>
+				            <div class="media-body">
+				              <h4 class="media-heading">Nested media heading</h4>
+				              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+				            </div>
+				          </div>
+				        </div>
+				      </li>-->
+				      
+				      <% if signed_in? %>
+				      <li class="media">
+				        <a class="pull-left" href="#">
+				          <img class="media-object" alt="avatar" src="${user.getString('avatar')}" style="width: 64px; height: 64px;">
+				        </a>
+				        <div class="media-body">
+				          <h4 class="media-heading">Comment</h4>
+				          <form>
+				          	<div class="input-group">
+								<input type="text" class="form-control" placeholder="Your comment goes here..." name="comment">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button">Say It!</button>
+								</span>
+							</div>
+				          </form>
+				        </div>
+				      </li>
+				      <% end %>
+			    	</ul>
+			    </div>
+			</div>
+		</div>
+	</div>
+<% end %>

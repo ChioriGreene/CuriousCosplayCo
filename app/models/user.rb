@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
 	attr_accessor :password
 	#attr_accessible :name, :email, :password, :password_configuration
+	self.primary_key = "userId"
 	
+	has_many :posts, primary_key: "userId", foreign_key: "owner"
+
 	email_regex = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
 	
 	validates :name, presence: true, length: {maximum: 50}

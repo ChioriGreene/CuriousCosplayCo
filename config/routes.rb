@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
 	get 'dashboard' => 'articles#dashboard', as: "dashboard", constraints: { subdomain: "accounts" }
 
+	get 'ajaxPosts' => 'articles#ajax', as: "ajax_posts", constraints: { subdomain: "api" }
+
 	get 'userlist' => 'users#index', as: 'users_path', constraints: { subdomain: '' }
 	get 'newUser' => 'users#new', constraints: { subdomain: '' }
 

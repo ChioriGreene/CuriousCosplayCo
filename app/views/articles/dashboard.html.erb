@@ -60,9 +60,11 @@
 	
 	<div id="ajax-posts">
 		<div class="bordered">
-			<div style="margin: 0 auto; display: block;">
-				<img src="%images%/728.gif" alt="Loading" />
-				<p>Loading a better tomorrow...</p>
+			<div style="margin: 0 auto; display: block; width: 200px">
+				<center>
+					<%= image_tag "728.gif", alt: "Loading" %>
+					<p>Loading a better tomorrow...</p>
+				</center>
 			</div>
 		</div>
 	</div>
@@ -78,7 +80,7 @@
 	
 	function ajaxReload()
 	{
-		$.get("http://curiouscosplay.co/api/ajax-posts", function (data) {
+		$.get("<%= ajax_posts_url.to_s %>", function (data) {
 			$("#ajax-posts").html(data);
 			$(".post-notes").hide();
 			$(".show-notes").on("click", function () {
